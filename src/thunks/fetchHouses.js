@@ -1,9 +1,9 @@
 import { isLoading, hasErrored, addHousesSuccess } from '../actions'
+import { cleanHouses } from '../helper'
 
 export const fetchHouses = (url) => {
 
 	return async (dispatch) => {
-
 		try {
 			dispatch(isLoading(true))
 			const response = await fetch(url)
@@ -12,10 +12,12 @@ export const fetchHouses = (url) => {
 				throw Error(response.statusText)
 			}
 
+			dispatch(isLoading(false))
 			const result = await response.json()
-			addHousesSuccess(result)
+			const cleanedHouses = cleanHouses(result)
+			dispatch(addHousesSuccess(cleanedHouses))
 		} catch (error) {
-			dispatch(hasErrored(true))
+			dispatch(hasErrored(error.message))
 		}
 	}
 }
