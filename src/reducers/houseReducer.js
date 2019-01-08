@@ -1,4 +1,4 @@
-const houseReducer = (state=[], action) => {
+export const houseReducer = (state=[], action) => {
 	switch(action.type) {
 		case 'FETCH_HOUSE_SUCCESS':
 			return action.type
@@ -7,8 +7,7 @@ const houseReducer = (state=[], action) => {
 	}
 }
 
-
-const isLoading = (state=false, action) => {
+export const isLoading = (state=false, action) => {
 	switch(action.type) {
 		case 'IS_LOADING':
 			return action.type
@@ -17,9 +16,7 @@ const isLoading = (state=false, action) => {
 	}
 }
 
-
-
-const hasErrored = (state='', action) => {
+export const hasErrored = (state='', action) => {
 	switch(action.type) {
 		case 'HAS_ERRORED':
 			return action.type

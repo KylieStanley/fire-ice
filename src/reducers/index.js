@@ -3,7 +3,7 @@ import { isLoading, hasErrored, houseReducer } from './houseReducer';
 
 const rootReducer = combineReducers({
   houses: houseReducer,
-  error: hasErrored
+  error: hasErrored,
   isLoading,
 })
 
