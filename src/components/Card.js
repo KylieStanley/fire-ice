@@ -12,6 +12,7 @@ export const Card = (props) => {
 			{splitTitles}
 			<p>Weapons: {ancestralWeapons}</p>
 			<p>Coat of Arms: {coatOfArms}</p>
+			<p>Words: {words}</p>
 		</div>
 	)
 }

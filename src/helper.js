@@ -6,6 +6,6 @@ export const cleanHouses = (houses) => {
 		titles: house.titles, 
 		coatOfArms: house.coatOfArms, 
 		ancestralWeapons: house.ancestralWeapons, 
-		words: house.words
+		words: house.words || 'N/A'
 	}))
 }
