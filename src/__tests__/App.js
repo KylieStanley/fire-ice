@@ -12,11 +12,10 @@ describe('App', () => {
       const mockState = {
         houses: [{name: 'WinterFell'}, {name: 'Lannister'}],
         isLoading: false,
-        people: "person"
+        error: "error"
       }
       const expected = {
-        houses: [{name: 'WinterFell'}, {name: 'Lannister'}],
-        isLoading: false
+        error: "error"
       }
 
       const mappedProps = mapStateToProps(mockState)

@@ -3,7 +3,7 @@ import { houseReducer, isLoading, hasErrored } from '../houseReducer'
 describe('houseReducer', () => {
   it('should return the initial state', () => {
     const expected = []
-    const result = houseReducer(undefined, [])
+    const result = houseReducer(undefined, {})
 
     expect(result).toEqual(expected)
   })
@@ -20,8 +20,8 @@ describe('houseReducer', () => {
 
 describe('isLoading', () => {
   it('should return the initial state', () => {
-    const expected = []
-    const result = houseReducer(undefined, [])
+    const expected = false
+    const result = isLoading(undefined, {})
 
     expect(result).toEqual(expected)
   })
@@ -37,8 +37,8 @@ describe('isLoading', () => {
 
 describe('hasErrored', () => {
   it('should return the initial state', () => {
-    const expected = []
-    const result = houseReducer(undefined, [])
+    const expected = ''
+    const result = hasErrored(undefined, {})
 
     expect(result).toEqual(expected)
   })

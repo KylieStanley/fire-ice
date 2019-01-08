@@ -15,6 +15,7 @@ export const fetchHouses = (url) => {
 			dispatch(isLoading(false))
 			const result = await response.json()
 			const cleanedHouses = cleanHouses(result)
+			
 			dispatch(addHousesSuccess(cleanedHouses))
 		} catch (error) {
 			dispatch(hasErrored(error.message))

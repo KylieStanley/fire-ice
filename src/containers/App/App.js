@@ -3,8 +3,7 @@ import { connect } from 'react-redux'
 import logo from './logo.svg';
 import { fetchHouses } from '../../thunks/fetchHouses'
 import './App.css';
-import { CardContainer } from '../CardContainer'
-import { Card } from '../../components/Card'
+import CardContainer from '../CardContainer'
 
 export class App extends Component {
 
@@ -14,26 +13,26 @@ export class App extends Component {
   }
 
   render() {
-
-    let containerContents = !this.props.isLoading ? this.props.houses.map(house => <Card {...house} />) : <img src="../../wolf.gif" />
-
-    return (
-      <div className='App'>
-        <div className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
-          <h2>Welcome to Westeros</h2>
-        </div> 
-        <div className='Display-info Container'>
-          { containerContents }
+    if (this.props.error) {
+      return (
+        <div>{this.props.error}</div> 
+      )
+    } else {
+      return (
+        <div className='App'>
+          <div className='App-header'>
+            <img src={logo} className='App-logo' alt='logo' />
+            <h2>Welcome to Westeros</h2>
+          </div> 
+          <CardContainer />
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
 export const mapStateToProps = (state) => ({
-  isLoading: state.isLoading,
-  houses: state.houses
+  error: state.error
 })
 
 export const mapDispatchToProps = (dispatch) => ({
